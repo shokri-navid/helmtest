@@ -14,7 +14,6 @@ data:
 {{- range $filename, $fileContents := .Values.configFiles }}
   {{ $filename }}: |-
 {{ if eq $filename "oc.revad.toml" }}
-  {{ echo "mansoore kos" }}
   {{ $fileContents | indent 4 | replace "OC_URL" $ocHost | replace "HOST_URL" $host | replace "SHARED_SECRET" $secret | replace "CERT_FILE" $certFile | replace "CERT_KEY" $certKey }}
 {{ else }}  
   {{ $fileContents | indent 4 }}
